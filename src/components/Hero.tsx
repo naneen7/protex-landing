@@ -29,22 +29,24 @@ export default function Hero() {
 
     return (
         <header className="relative w-full h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
-            {/* Spline 3D Background */}
-            <div className="absolute inset-0 z-0">
+            {/* Spline 3D Background — pointer-events-none so it stays static */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
                 <Suspense fallback={<div className="w-full h-full bg-[#000d01]" />}>
-                    <Spline
-                        scene="https://prod.spline.design/d68dh5bBVMBT3XHh/scene.splinecode"
-                        onLoad={() => setSplineLoaded(true)}
-                        style={{ width: "100%", height: "100%" }}
-                    />
+                    <div className="w-full h-full pointer-events-none">
+                        <Spline
+                            scene="https://prod.spline.design/d68dh5bBVMBT3XHh/scene.splinecode"
+                            onLoad={() => setSplineLoaded(true)}
+                            style={{ width: "100%", height: "100%", pointerEvents: "none" }}
+                        />
+                    </div>
                 </Suspense>
 
                 {/* Dark overlay to dim the Spline scene */}
-                <div className="absolute inset-0 bg-[#000d01]/55 pointer-events-none" />
+                <div className="absolute inset-0 bg-[#000d01]/55" />
 
                 {/* Gradient overlays — stronger fade at top and bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#000d01] via-[#000d01]/20 to-[#000d01]/60 pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-[#000d01] to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000d01] via-[#000d01]/20 to-[#000d01]/60" />
+                <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-[#000d01] to-transparent" />
             </div>
 
             <div className="relative z-10 w-full max-w-7xl mx-auto px-6 text-center mt-20 pointer-events-none">
