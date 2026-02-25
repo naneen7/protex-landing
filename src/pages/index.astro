@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Logos from '../components/Logos';
+import Discover from '../components/Discover';
+import Features from '../components/Features';
+import Capabilities from '../components/Capabilities';
+import HowItWorks from '../components/HowItWorks';
+import Testimonials from '../components/Testimonials';
+import Pricing from '../components/Pricing';
+import CTA from '../components/CTA';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Protex - Security for a connected world">
+  <Navbar client:load />
+  <main>
+    <Hero client:load />
+    <Logos client:visible />
+    <Discover client:visible />
+    <Features client:visible />
+    <Capabilities client:load />
+    <HowItWorks client:visible />
+    <Testimonials client:visible />
+    <Pricing client:visible />
+    <CTA client:visible />
+  </main>
+  <Footer />
+</Layout>
